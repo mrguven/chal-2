@@ -69,22 +69,22 @@ export default function UserProfile() {
 
 <div id="userProfile">
 <ul className="list-group list-group-horizontal">
-  <li className="list-group-item">Full Name :</li>
+  <li className="list-group-item"><b> Full Name :</b></li>
   <li className="list-group-item">{fullName}</li>
   
 </ul>
 <ul className="list-group list-group-horizontal-sm">
-  <li className="list-group-item">User Name:</li>
+  <li className="list-group-item"><b>User Name:</b></li>
   <li className="list-group-item">{userName}</li>
   
 </ul>
 <ul className="list-group list-group-horizontal">
-  <li className="list-group-item">Location:</li>
+  <li className="list-group-item"><b>Location:</b></li>
   <li className="list-group-item">{location} </li>
  
 </ul>
 <ul className="list-group list-group-horizontal">
-  <li className="list-group-item">User GITHUB Link:</li>
+  <li className="list-group-item"><b>User GITHUB Link:</b></li>
   <li className="list-group-item"><a href={userLink}>{userLink} </a></li>
  
 </ul>

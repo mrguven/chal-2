@@ -1,11 +1,12 @@
 #userProfile {
   display: inline-block;
-  margin-left: 13%;
+  margin-left: 10%;
+  width: 50%;
 
 }
 
 #userProfile ul li {
-  width: 230px;
+  width:120%;
 }
 
 #userImg {
@@ -14,6 +15,8 @@ display: inline-block;
   
 margin: 10px;
 margin-bottom: 60px;
+margin-right: 2px;
+margin-left: 3%;
 }
 
 .list-group {
