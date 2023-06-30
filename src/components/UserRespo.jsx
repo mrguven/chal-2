@@ -1,12 +1,20 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-import { Link } from "react-router-dom";
+
+
 
 export default function UserRespo () {
 
+const [respoList,setRespoList]=useState()
 
+    useEffect( ()=> {
 
-
-
+        axios.get(process.env.REACT_APP_GITHUB_RESPO)
+        .then((res)=>{ console.log(res.data); setRespoList(res.data)})
+        .catch(err=> console.log(err))},[]
+    
+    )
 
 
 
@@ -22,14 +30,31 @@ export default function UserRespo () {
 
 
 
+
+
+
+
+
+
+    
+
+
+
+
+
 <div class="list-group">
   <h1  className="list-group-item list-group-item-action active" aria-current="true">
   User Resporitories
   </h1>
-  <Link to className="list-group-item list-group-item-action">A second link item</Link>
-  <a href="#" className="list-group-item list-group-item-action">A third link item</a>
-  <a href="#" className="list-group-item list-group-item-action">A fourth link item</a>
-  <a className="list-group-item list-group-item-action disabled">A disabled link item</a>
+
+{respoList ? respoList.map( (respo)=>{ 
+return (  
+  <a href={respo.html_url} className="list-group-item list-group-item-action"> <b> Resporitories Name: </b> {respo.name}   <br /> <b>  Resporitories URL:</b> {respo.html_url} </a>
+
+)} )
+ :
+ null
+}
 </div>
 
 

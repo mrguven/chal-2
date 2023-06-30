@@ -1,6 +1,7 @@
 
 import './App.css';
-import UserInfo from './components/UserInfo';
+import UserProfile from './components/UserProfile';
+
 import UserRespo from './components/UserRespo';
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     <div className="App">
       
 
-<UserInfo />
+<UserProfile />
 <UserRespo />
      
     </div>

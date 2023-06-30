@@ -1,6 +1,17 @@
 #userProfile {
-  margin: 20px;
-  margin-top: 140px;
-  position: relative;
-  left: 800px;
+  display: inline-block;
+  margin-left: 13%;
+
+}
+
+#userProfile ul li {
+  width: 230px;
+}
+
+#userImg {
+
+display: inline-block;
+  
+margin: 10px;
+margin-bottom: 60px;
 }
