@@ -15,3 +15,8 @@ display: inline-block;
 margin: 10px;
 margin-bottom: 60px;
 }
+
+.list-group {
+  margin: 30px;
+  width: 50%;
+}
