@@ -6,30 +6,20 @@ import axios from "axios";
 export default function Search() {
 
 
-    const [data,setData]=useState({
-      
-      
-    })
+   
 
- const [fullName,setFullName]=useState('sdf');
- const [userName,setUserName]=useState('sdf');
- const [location,setLocation]=useState('sdf');
+ const [fullName,setFullName]=useState('');
+ const [userName,setUserName]=useState('');
+ const [location,setLocation]=useState('');
  const [userLink,setUserLink]=useState();
  const[userImage,setUserImage]=useState()
+ const [er,setEr]=useState()
 
 
- useEffect( ()=> {
 
-     axios.get(process.env.REACT_APP_GITHUB_API)
-     .then((res)=> {console.log(res.data);const data=res.data ; setFullName(data.name);
-         setLocation(data.location);
-         setUserName(data.login)
-         setUserLink(data.html_url);
-         setUserImage(data.avatar_url);     }
-     )
-     .catch(err=> console.log(err))},[]
+   
  
- )
+ 
 
 
 
@@ -40,18 +30,37 @@ const [client_id,setClient_id]=useState();
 const[client_secret,setClient_secret]=useState()
 
 
-    useEffect( ()=> {
+  
 
-        axios.get(process.env.REACT_APP_GITHUB_RESPO)
-        .then((res)=>{ console.log(res.data); setRespoList(res.data)})
-        .catch(err=> console.log(err))},[]
     
-    )
+        const search =  ()=> {
+            
+            axios.get(`http://api.github.com/users/${user}?client_id=${client_id}&client_secret=${client_secret}&sort=created`)
+            .then((res)=> {console.log(res.data);const data=res.data ; setFullName(data.name);
+                setLocation(data.location);
+                setUserName(data.login)
+                setUserLink(data.html_url);
+                setUserImage(data.avatar_url);  
+               }
+            )
+            .catch(err=> setEr(err.response.data.message))
+        
+            axios.get(`http://api.github.com/users/${user}/repos?client_id=${client_id}&client_secret=${client_secret}&sort=created`)
+            .then((res)=>{ console.log(res.data); setRespoList(res.data)})
+            .catch(err=> setEr(err.response.data.message))} 
+
+            
+    
+  
+        
+        
+        
+        
+     
+    
+    
 
 
-function search() {
-
-}
 
 
 
@@ -103,8 +112,10 @@ function search() {
   <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value={client_id} onChange={(e)=> {setClient_id(e.target.value)}} /> 
   <span className="input-group-text" id="inputGroup-sizing-default">client_secret</span>
   <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value={client_secret} onChange={(e)=> {setClient_secret(e.target.value)}} /> 
-  <button type="button" className="btn btn-primary"  onClick={search()} >Search</button>
+  <button type="button" className="btn btn-primary"  onClick={search} >Search</button>
 </div>
+
+<b>error:</b>{er &&   er}
 </div>
 
 
