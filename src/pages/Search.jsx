@@ -13,7 +13,7 @@ export default function Search() {
  const [location,setLocation]=useState('');
  const [userLink,setUserLink]=useState();
  const[userImage,setUserImage]=useState()
- const [er,setEr]=useState()
+ const [er,setEr]=useState('')
 
 
 
@@ -41,12 +41,13 @@ const[client_secret,setClient_secret]=useState()
                 setUserName(data.login)
                 setUserLink(data.html_url);
                 setUserImage(data.avatar_url);  
+                setEr('')
                }
             )
             .catch(err=> setEr(err.response.data.message))
         
             axios.get(`http://api.github.com/users/${user}/repos?client_id=${client_id}&client_secret=${client_secret}&sort=created`)
-            .then((res)=>{ console.log(res.data); setRespoList(res.data)})
+            .then((res)=>{ console.log(res.data); setRespoList(res.data);setEr('')})
             .catch(err=> setEr(err.response.data.message))} 
 
             
@@ -114,8 +115,9 @@ const[client_secret,setClient_secret]=useState()
   <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value={client_secret} onChange={(e)=> {setClient_secret(e.target.value)}} /> 
   <button type="button" className="btn btn-primary"  onClick={search} >Search</button>
 </div>
-
-<b>error:</b>{er &&   er}
+<div>
+{er ? <p><b>error:</b>{er}</p>  :null}
+</div>
 </div>
 
 
