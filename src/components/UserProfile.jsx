@@ -6,25 +6,7 @@ import axios from "axios";
 export default function UserProfile() {
 
     const [data,setData]=useState({
-        created_at
-        : 
-        "2020-01-07T14:37:55Z",
-       
-     
-        html_url
-        : 
-        "https://github.com/mrguven",
-       
-        location
-        : 
-        "Rotterdam",
-        login
-        : 
-        "mrguven",
-        name
-        : 
-        "Rauf GUVEN"
-        
+      
       
        })
 

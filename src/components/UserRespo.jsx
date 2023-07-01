@@ -8,6 +8,9 @@ export default function UserRespo () {
 
 const [respoList,setRespoList]=useState()
 
+
+
+
     useEffect( ()=> {
 
         axios.get(process.env.REACT_APP_GITHUB_RESPO)
@@ -28,13 +31,7 @@ const [respoList,setRespoList]=useState()
 <div>
 
 
-<div id="inputGroup">
-<div className="input-group mb-3" >
-  <span className="input-group-text" id="inputGroup-sizing-default">Default</span>
-  <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" /> 
-  <button type="button" className="btn btn-primary">Search</button>
-</div>
-</div>
+
 
 
 
