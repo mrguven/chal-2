@@ -1,14 +1,7 @@
 import { Link, NavLink } from "react-router-dom"
-
-
-
 export default function NavBar() {
-
-
-
-
+    
     return(
-
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <Link to='/' class="navbar-brand" >Navbar</Link >
@@ -23,8 +16,6 @@ export default function NavBar() {
               <li class="nav-item">
               <Link to='/searchUser' class="nav-link active" >Search User</Link >
               </li>
-             
-             
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -33,10 +24,5 @@ export default function NavBar() {
           </div>
         </div>
       </nav>
-
-
-
-
-
     )
 }
